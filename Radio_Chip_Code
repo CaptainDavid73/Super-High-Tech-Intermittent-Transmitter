@@ -1,0 +1,30 @@
+int output = 1;
+int input1 = 2;
+int input2 = 3;
+int input3 = 4; 
+int input4 = 0;
+int input_val = 0;
+void setup(){
+  pinMode(input1, INPUT_PULLUP);
+  pinMode(input2, INPUT_PULLUP);
+  pinMode(input3, INPUT_PULLUP);
+  pinMode(input4, INPUT_PULLUP);
+  pinMode(output, OUTPUT);
+}
+
+void loop(){
+  input_val = 0;
+  if(digitalRead(input1) == 0){
+    input_val = 32;
+  }
+  if(digitalRead(input2) == 0){
+    input_val = 64;
+  }
+  if(digitalRead(input3) == 0){
+    input_val = 96;
+  }
+  if(digitalRead(input4) == 0){
+    input_val = 128 ;
+  }
+  analogWrite(output, input_val);
+} 
