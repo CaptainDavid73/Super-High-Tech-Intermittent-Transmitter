@@ -1,1 +1,33 @@
-
+#include "TinyWireM.h"
+#include "TinyOzOLED.h"
+int number = 1000;
+void setup() {
+  OzOled.init();
+  pinMode(1, INPUT);
+  pinMode(4, OUTPUT);
+  OzOled.printString("RF TRANSMITTER", 0, 0);
+  OzOled.printString("DENGENEERING INC", 0, 2);
+  delay(3000);
+  OzOled.clearDisplay(); 
+}
+void loop() {
+  number = pulseIn(1, HIGH);
+  digitalWrite(4, LOW); 
+  OzOled.printString("PRESS TO TX", 0, 0);
+  if(number > 1000 && number < 2500){
+    digitalWrite(4, HIGH); 
+    OzOled.printString("Signal 1", 0, 2);
+  }
+  else if(number > 3000 && number < 4500){
+    digitalWrite(4, HIGH);
+    OzOled.printString("Signal 2", 0, 2);
+  }
+  else if(number > 5000 && number < 6500){
+    digitalWrite(4, HIGH);
+    OzOled.printString("Signal 3", 0, 2);
+  }
+  else if(number > 7000 && number < 8500){
+    digitalWrite(4, HIGH);
+    OzOled.printString("Signal 4", 0, 2);
+  }
+}
