@@ -1,0 +1,23 @@
+int pin1 = 0;
+int input = 3;
+int val;
+void setup(){
+  pinMode(input, INPUT_PULLUP);
+  pinMode(pin1, OUTPUT);
+}
+
+void loop(){
+  val = digitalRead(input);
+  if(val == 0){
+    digitalWrite(pin1, HIGH);
+    delayMicroseconds(600);
+    digitalWrite(pin1, LOW);
+    delayMicroseconds(19400); 
+  }
+  else if(val == 1){
+    digitalWrite(pin1, HIGH);
+    delayMicroseconds(1500);
+    digitalWrite(pin1, LOW);
+    delayMicroseconds(17600);
+  }
+}
