@@ -1,0 +1,24 @@
+int val;
+int output;
+
+void setup(){
+  pinMode(1, INPUT);
+  pinMode(4, OUTPUT);
+}
+
+void loop(){
+  val = pulseIn(1, HIGH);
+
+  if(val > 2050 && val < 2100){
+    output = 1;
+  }
+  if(val > 3800 && val < 4050){
+    output = 2;
+  }
+  if(output == 1){
+    digitalWrite(4, HIGH);
+  }
+  if(output == 2){
+    digitalWrite(4, LOW);
+  }  
+}
